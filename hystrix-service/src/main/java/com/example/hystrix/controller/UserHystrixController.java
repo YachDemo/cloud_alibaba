@@ -30,4 +30,19 @@ public class UserHystrixController {
     public Result testCommand(@PathVariable Long id) {
         return userService.getUserCommand(id);
     }
+
+    @GetMapping("/testException/{id}")
+    public Result testException(@PathVariable Long id) {
+        return userService.getUserException(id);
+    }
+
+    @GetMapping("/testCache/{id}")
+    public Result testCache(@PathVariable Long id) {
+        userService.getUserCache(id);
+        userService.getUserCache(id);
+        userService.getUserCache(id);
+        return Result.success("操作成功");
+    }
+
+
 }
