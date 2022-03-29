@@ -30,6 +30,7 @@ class UserServiceImpl : UserService {
 
     override fun getByUsername(username: String?): User {
         val user = User()
+        user.userName = username
         return user
     }
 
